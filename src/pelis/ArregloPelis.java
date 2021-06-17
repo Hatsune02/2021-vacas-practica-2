@@ -27,7 +27,7 @@ public class ArregloPelis {
         agregarPeli(nombre, year, categoria);
     }
 
-    public void mostrarClientes(){
+    public void mostrarPelis(){
         System.out.println("\n\nPeliculas de Memorabilia");
         for (int i = 0; i < contador; i++) {
             System.out.println("-" + (i+1) + ") " + pelis[i].mostrarPeli());
@@ -88,13 +88,35 @@ public class ArregloPelis {
         }
     }
 
-    public void eliminarPeli(int id){
+    public void modificarPelis(){
+        mostrarPelis();
+        int posicion = IngresoDatos.getEntero("Ingrese la posicion de la pelicula que quiere modificar ", true);
+        String nombre = IngresoDatos.getTexto("Ingrese el nuevo nombre de la peli");
+        int year = IngresoDatos.getEntero("Ingrese el nuevo año de salida de la peli", false);
+        String categoria = IngresoDatos.getTexto("Ingresa la nueva categoría de la peli");
+        modificarPelis(posicion, nombre, year, categoria);
+    }
+
+    public void eliminarPeli(int posicion){
         for (int i = 0; i < contador; i++) {
-            if(i >= (id - 1)){
+            if(i >= (posicion - 1)){
                 pelis[i] = pelis[i+1];
-            }
-            
+            } 
         }
         contador--;
+    }
+
+    public void eliminarPeli(){
+        mostrarPelis();
+        int posicion = IngresoDatos.getEntero("Escoja la posición de la pelicula que quiere eliminar", false);
+        eliminarPeli(posicion);
+    }
+
+    public Peli[] getPelis() {
+        return pelis;
+    }
+
+    public int getContador() {
+        return contador;
     }
 }

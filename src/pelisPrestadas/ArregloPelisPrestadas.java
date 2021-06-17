@@ -21,7 +21,7 @@ public class ArregloPelisPrestadas {
         }
     }
 
-    public void agregarPeli(Cliente[] clientes, Peli[] pelis, int contadorPelis, int contadorClientes){
+    public void prestarPeli(Cliente[] clientes, Peli[] pelis, int contadorPelis, int contadorClientes){
         int idCliente = IngresoDatos.getEntero("Ingrese el año de salida de la peli", false);
         int idPeli = IngresoDatos.getEntero("Ingrese el año de salida de la peli", false);
         int diasPrestados = IngresoDatos.getEntero("Ingrese el año de salida de la peli", false);
@@ -33,7 +33,7 @@ public class ArregloPelisPrestadas {
         for (int i = 0; i < contadorPelis; i++) {
             if(idPeli == pelis[i].getId()){
                 peli = pelis[i];
-                encontrado = true;
+                pelis[i].prestamoPeli();
                 break;
             }
         }
@@ -61,5 +61,31 @@ public class ArregloPelisPrestadas {
         }
         
         System.out.println("\n");
+    }
+
+    public void eliminarPeli(int posicion){
+        for (int i = 0; i < contador; i++) {
+            if(i >= (posicion - 1)){
+                pelisPrestadas[i] = pelisPrestadas[i+1];
+            }
+            
+        }
+        contador--;
+    }
+
+    public void mostrarPeliPrestada(){
+        System.out.println("\n\nPeliculas de Memorabilia");
+        for (int i = 0; i < contador; i++) {
+            System.out.println("-" + (i+1) + ") " + pelisPrestadas[i].mostrarPeliPrestada());
+        }
+        System.out.println("\n\n");
+    }
+
+    public PelisPrestadas[] getPelisPrestadas() {
+        return pelisPrestadas;
+    }
+
+    public int getContador() {
+        return contador;
     }
 }

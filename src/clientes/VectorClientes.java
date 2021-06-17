@@ -67,6 +67,12 @@ public class VectorClientes {
 
     }
 
+    public Cliente[] getClientes() {
+        return clientes;
+    }
 
+    public int getSiguienteCodigo() {
+        return siguienteCodigo;
+    }
     
 }
