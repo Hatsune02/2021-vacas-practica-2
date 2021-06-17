@@ -1,7 +1,5 @@
 package src.pelis;
 
-import src.tienda.*;
-
 public class Peli{
     private int id;
     private String nombre;
@@ -17,12 +15,8 @@ public class Peli{
         disponible = true;
     }
 
-    public Peli(){
-        this.id = IngresoDatos.getInt("Ingrese el Id de la Peli");
-        this.nombre = IngresoDatos.getString("Ingrese el nombre de la peli");
-        this.year = IngresoDatos.getInt("Ingrese el año de salida de la peli");
-        this.categoria = IngresoDatos.getString("Ingresa la categoría de la peli");
-        disponible = true;
+    public Peli(int id, String nombre, String categoria){
+        this(id, nombre, 0, categoria);
     }
 
     //GETTERS SETTERS
