@@ -15,7 +15,7 @@ public class ArregloPelis {
             System.out.println("Límite de películas alcanzado");
         }
         else{
-            pelis[contador-1] = new Peli((contador + 1), nombre, year, categoria);
+            pelis[contador] = new Peli((contador + 1), nombre, year, categoria);
             contador++;
         }
     }

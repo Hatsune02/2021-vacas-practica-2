@@ -38,8 +38,7 @@ public class Principal {
 
         }
 
-
-
+        
     }
 
     public void menuClientes(){
@@ -143,6 +142,8 @@ public class Principal {
             menu = IngresoDatos.getEntero("Ingrese la opción ", true);
 
             if (menu == 1 ){
+                tablaPelis.mostrarPelis();
+                tablaClientes.mostrarClientes();
                 tablaPelisPrestadas.prestarPeli(tablaClientes.getClientes(), tablaPelis.getPelis(), tablaPelis.getContador(), (tablaClientes.getSiguienteCodigo()-1));
             }
             if (menu == 2){

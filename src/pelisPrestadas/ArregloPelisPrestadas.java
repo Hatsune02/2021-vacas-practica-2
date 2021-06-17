@@ -16,15 +16,17 @@ public class ArregloPelisPrestadas {
             System.out.println("Límite de películas alcanzado");
         }
         else{
-            pelisPrestadas[contador-1] = new PelisPrestadas(cliente, peli, diasPrestados);
+            pelisPrestadas[contador] = new PelisPrestadas(cliente, peli, diasPrestados);
             contador++;
         }
     }
 
     public void prestarPeli(Cliente[] clientes, Peli[] pelis, int contadorPelis, int contadorClientes){
-        int idCliente = IngresoDatos.getEntero("Ingrese el año de salida de la peli", false);
-        int idPeli = IngresoDatos.getEntero("Ingrese el año de salida de la peli", false);
-        int diasPrestados = IngresoDatos.getEntero("Ingrese el año de salida de la peli", false);
+        
+        
+        int idCliente = IngresoDatos.getEntero("Ingrese el id del cliente ", false);
+        int idPeli = IngresoDatos.getEntero("Ingrese el id de la película ", false);
+        int diasPrestados = IngresoDatos.getEntero("Ingrese días que se prestará la película " , false);
         Cliente cliente = null;
         Peli peli = null;
         boolean encontrado = false;
@@ -34,6 +36,7 @@ public class ArregloPelisPrestadas {
             if(idPeli == pelis[i].getId()){
                 peli = pelis[i];
                 pelis[i].prestamoPeli();
+                encontrado = true;
                 break;
             }
         }
